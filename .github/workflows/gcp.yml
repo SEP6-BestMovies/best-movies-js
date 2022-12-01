@@ -1,4 +1,4 @@
-# custom script
+# custom script 
 ---
 name: Build and Push Image to Google Cloud
 on:
