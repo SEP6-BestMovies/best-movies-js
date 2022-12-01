@@ -51,7 +51,7 @@ on:
 env:
   PROJECT_ID: movies-docker-next-js # TODO: update Google Cloud project id
   GAR_LOCATION: europe-north1 # TODO: update Artifact Registry location
-  SERVICE: best-movies # TODO: update Cloud Run service name
+  SERVICE: nextjs # TODO: update Cloud Run service name
   REGION: europe-north1 # TODO: update Cloud Run service region
 
 jobs:
