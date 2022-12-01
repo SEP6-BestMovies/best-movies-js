@@ -9,7 +9,7 @@ jobs:
     name: Build and Push to GCP
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: movies-js
+      IMAGE_NAME: images
       PROJECT_ID: movies-docker-next-js
     steps:
     - name: Checkout
