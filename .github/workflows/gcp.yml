@@ -1,18 +1,14 @@
-# custom scrip
 ---
-name: Build and Push Image to Google Cloud
+name: Build and Push Python Image to Google Cloud Platform
 on:
   push:
     branches: [ main ]
-  pull_request:
-   branches: [ "main" ]
-    
 jobs:
   build-push-gcr:
     name: Build and Push to GCP
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: image-movies
+      IMAGE_NAME: movies
       PROJECT_ID: best-movies-js
     steps:
     - name: Checkout
@@ -30,19 +26,12 @@ jobs:
     - name: Configure Docker Client
       run: |-
         gcloud auth configure-docker --quiet
-    
-    - name: Push Docker Image to  (GCR)
+
+    - name: Push Docker Image to Container Registry (GCR)
       env:
         GIT_TAG: v0.1.0
-    
-      run: |
-        gcloud builds submit --tag gcr.io/movies-docker-next-js/helloworld --project movies-docker-next-js
-        
-    - name: Deploy to GCP
-      run: gcloud run deploy --image gcr.io/movies-docker-next-js/helloworld --project movies-docker-next-js --platform managed
-        
-      #run: |
-        #docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
-        #docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
-        #docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
-        #docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+      run: |-
+        docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
+        docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+        docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
+        docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
