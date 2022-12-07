@@ -53,7 +53,7 @@ env:
   GAR_LOCATION: europe-north1 # TODO: update Artifact Registry location
   SERVICE: movies-google-run # TODO: update Cloud Run service name
   REGION: europe-north1 # TODO: update Cloud Run service region
-  IMG_REPO: gcr.io
+  IMG_REPO: eu.gcr.io
 
 jobs:
   deploy:
@@ -95,8 +95,8 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t "eu.gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
-          docker push "eu.gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
+          docker build -t "gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
+          docker push "gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
 
       # END - Docker auth and build
 
