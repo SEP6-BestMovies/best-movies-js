@@ -50,9 +50,9 @@ on:
 
 env:
   PROJECT_ID: best-movies-js # Google Cloud project id
-  GAR_LOCATION: europe-north1 # Artifact Registry location
+  GAR_LOCATION: europe # Artifact Registry location
   SERVICE: movies-google-run # Cloud Run service name
-  REGION: europe-north1 # Cloud Run service region
+  REGION: europe # Cloud Run service region
   IMG_REPO: eu.gcr.io
 
 jobs:
