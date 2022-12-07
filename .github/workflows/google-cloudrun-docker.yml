@@ -53,7 +53,7 @@ env:
   GAR_LOCATION: europe-north1 # TODO: update Artifact Registry location
   SERVICE: movies-google-run # TODO: update Cloud Run service name
   REGION: europe-north1 # TODO: update Cloud Run service region
-  IMG_REPO: images
+  IMG_REPO: eu.gcr.io
 
 jobs:
   deploy:
