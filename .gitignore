@@ -140,3 +140,6 @@ dist
 graphql_schema.json
 .graphql_cache
 .graphql_ppx_cache
+
+# Ignore generated credentials from google-github-actions/auth
+gha-creds-*.json
