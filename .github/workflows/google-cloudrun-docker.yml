@@ -49,10 +49,10 @@ on:
     branches: [ "main" ]
 
 env:
-  PROJECT_ID: best-movies-js # TODO: update Google Cloud project id
-  GAR_LOCATION: europe-north1 # TODO: update Artifact Registry location
-  SERVICE: movies-google-run # TODO: update Cloud Run service name
-  REGION: europe-north1 # TODO: update Cloud Run service region
+  PROJECT_ID: best-movies-js # Google Cloud project id
+  GAR_LOCATION: europe-north1 # Artifact Registry location
+  SERVICE: movies-google-run # Cloud Run service name
+  REGION: europe-north1 # Cloud Run service region
   IMG_REPO: eu.gcr.io
 
 jobs:
@@ -95,8 +95,11 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t "gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
-          docker push "gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
+          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}:new" ./
+          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}:new"
+          
+          #docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
+          #docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
 
       # END - Docker auth and build
 
