@@ -95,8 +95,8 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.IMG_REPO }}:${{ github.sha }}" ./
-          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.IMG_REPO }}:${{ github.sha }}"
+          docker build -t "eu.gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
+          docker push "eu.gcr.io-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
 
       # END - Docker auth and build
 
