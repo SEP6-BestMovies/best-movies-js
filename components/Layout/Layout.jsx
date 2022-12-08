@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 import { SERVER_PROPS_ID } from "next/dist/shared/lib/constants";
 
 const Layout = (props) => {
