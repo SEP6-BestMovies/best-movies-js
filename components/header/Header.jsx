@@ -3,7 +3,6 @@ import React, { useRef, useEffect } from "react";
 import { Container } from "reactstrap";
 import classes from "./header.module.css";
 import Link from "next/link";
-import Image from "next/image";
 
 const NAV__LINK = [
     {
@@ -26,7 +25,6 @@ const NAV__LINK = [
 
 const Header = () => {
     const headerRef = useRef(null);
-
     const menuRef = useRef(null);
 
     const headerFunc = () => {
@@ -74,7 +72,7 @@ const Header = () => {
                             <div className={`${classes.nav__right}`}>
                                 <p className=" d-flex align-items-center gap-2 mb-0">
                                     {" "}
-                                    <i class="ri-user-fill"></i>
+                                    <i className="ri-user-fill"></i>
                                     {" "}
                                 </p>
                             </div>
