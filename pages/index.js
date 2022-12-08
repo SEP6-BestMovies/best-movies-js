@@ -1,67 +1,48 @@
 import Head from 'next/head'
+import Link from "next/link"
 import styles from '../styles/Home.module.css'
+import { useAuth } from "../components/auth/auth";
 
 export default function Home() {
+  const { user, loading, signOut } = useAuth();
+
+  // loading state
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>NextJS Firebase Auth</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js</a> on Docker!
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <h1 className={styles.title}>NextJS Firebase Auth</h1>
+        {user ? (
+          <>
+            <p>Email: {user.email}</p>
+            <button onClick={signOut}>Log Out</button>
+          </>
+        ) : (
+          <>
+            <h2>Log in or Sign up to see data</h2>
+            <div className={styles.grid}>
+              <Link href="/login">
+                <div className={styles.card}>
+                  <h2>Login &rarr;</h2>
+                </div>
+              </Link>
+              <Link href="/signup">
+                <div className={styles.card}>
+                  <h2>Signup &rarr;</h2>
+                </div>
+              </Link>
+            </div>
+          </>
+        )}
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
-  )
+  );
 }
