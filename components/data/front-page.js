@@ -1,25 +1,36 @@
-const frontPage = [
+const movies = [
     {
-        id: "01",
+        id: "1",
         title: "Movie title",
-        img: "/images/movie-img-1",
-        category: "movie category"
+        img: "/images/movie01.png",
+        category: "action",
+        keyword: ["action", "new"],
+        liveUrl: "#",
     },
     {
-        id: "02",
+        id: "2",
         title: "Movie title",
-        img: "/images/movie-img-1",
-        category: "movie category"
+        img: "/images/movie01.png",
+        category: "action",
+        keyword: ["action", "cinema"],
+        liveUrl: "#",
     },
     {
-        id: "03",
+        id: "3",
         title: "Movie title",
-        img: "/images/movie-img-1",
-        category: "movie category"
-    },    {
-        id: "04",
+        img: "/images/movie01.png",
+        category: "action",
+        keyword: ["action", "american"],
+        liveUrl: "#",
+    },
+    {
+        id: "4",
         title: "Movie title",
-        img: "/images/movie-img-1",
-        category: "movie category"
+        img: "/images/movie01.png",
+        category: "action",
+        keyword: ["action", "new"],
+        liveUrl: "#",
     }
-]
+];
+
+export default movies;
