@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
 import { Container } from "reactstrap";
-import classes from "./header.module.css";
+import styles from "./header.module.css";
 import Link from "next/link";
 
 const NAV__LINK = [
