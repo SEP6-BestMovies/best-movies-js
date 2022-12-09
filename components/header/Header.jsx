@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
 import { Container } from "reactstrap";
-import styles from "./header.module.css";
+import classes from "./header.module.css";
 import Link from "next/link";
 
 const NAV__LINK = [
@@ -53,15 +53,14 @@ const Header = () => {
                 <div className={`${classes.nav__wrapper}`}>
                     {/* ======== navigation best movies logo ======== */}
                     <div className={`${classes.logo}`}>
-                        <img src="..\images\logo.png" alt="logo" width="135px"/>
+                        <img src="..\images\logo.png" alt="logo" width="135px" />
                     </div>
 
                     {/* ========= nav menu =========== */}
                     <div
                         className={`${classes.navigation}`}
                         ref={menuRef}
-                        onClick={toggleMenu}
-                    >
+                        onClick={toggleMenu} >
                         <div className={`${classes.nav__menu}`}>
                             {NAV__LINK.map((item, index) => (
                                 <Link href={item.path} key={index}>
