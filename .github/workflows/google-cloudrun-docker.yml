@@ -97,6 +97,9 @@ jobs:
       - name: Configure Docker
         run: gcloud auth configure-docker europe-north1-docker.pkg.dev
 
+      - name: Setup GCP environment
+        uses: google-github-actions/setup-gcloud@v1
+
       - name: Build and Push Container
         run: |-
           docker build -f Dockerfile -t ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
