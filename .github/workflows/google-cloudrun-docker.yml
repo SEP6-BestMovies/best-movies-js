@@ -54,7 +54,7 @@ env:
   SERVICE: movies-google-run # Cloud Run service name
   REGION: europe-north1 # Cloud Run service region
   IMG_REPO: eu.gcr.io
-  IMAGE_NAME: com.via.sep6.bestmovies.frontend
+  IMAGE_NAME: com/via/sep6/bestmovies/frontend
 
 jobs:
   deploy:
