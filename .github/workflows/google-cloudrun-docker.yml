@@ -54,7 +54,7 @@ env:
   SERVICE: movies-google-run # Cloud Run service name
   REGION: europe-north1 # Cloud Run service region
   IMG_REPO: eu.gcr.io
-  IMAGE_NAME: com/via/sep6/bestmovies/frontend
+  IMAGE_NAME: com/via/sep6/bestmovies/frontend 
 
 jobs:
   deploy:
@@ -104,6 +104,9 @@ jobs:
         run: |-
           docker build -f Dockerfile -t ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
           docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_CONFIG }} 
+
         
 
       # END - Docker auth and build
