@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-
 import { Container } from "reactstrap";
 import classes from "./header.module.css";
 import Link from "next/link";
@@ -21,12 +20,20 @@ const NAV__LINK = [
         path: "#reviews",
         display: "Reviews",
     },
+    {
+        path: "login", 
+        display: "Login",
+    },
+    {
+        path: "register",
+        display: "Register",
+    },
 ];
 
 const Header = () => {
     const headerRef = useRef(null);
     const menuRef = useRef(null);
-
+    
     const headerFunc = () => {
         if (
             document.body.scrollTop > 80 ||
