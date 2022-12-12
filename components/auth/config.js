@@ -1,9 +1,9 @@
 export const config = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+    apiKey: 'AIzaSyBETAy66YrnEk2HNeW0DfamaM6zt2P7b9k',
+    authDomain: '1:580030432808:web:beea27c142639ec33e171d',
+    projectId: 'bestmovies-e13f7',
+    storageBucket: 'bestmovies-e13f7.firebaseapp.com',
+    messagingSenderId: 'bestmovies-e13f7.appspot.com',
+    appId: 'G-29XVRJ7TC3',
+    measurementId: '580030432808', 
   };

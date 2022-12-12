@@ -36,7 +36,7 @@ const Login = () => {
 
   // if a user is logged in, redirect to a page of your liking
   if (auth.user) {
-    router.push("/index");
+    router.push("/");
     return null;
   }
 
