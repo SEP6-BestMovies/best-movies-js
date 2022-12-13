@@ -58,7 +58,7 @@ const ReviewsFrontPageSection = () => {
                 <div className={`${classes.testimonial__client}`}>
                   <Image
                     alt="client-img"
-                    src="/images/hero.jpg"
+                    //src="/images/hero.jpg"
                     width="50"
                     height="50"
                     className=" rounded-2"
@@ -84,7 +84,7 @@ const ReviewsFrontPageSection = () => {
                 <div className={`${classes.testimonial__client}`}>
                   <Image
                     alt="client-img"
-                    src="/images/hero.jpg"
+                    //src="/images/hero.jpg"
                     width="50"
                     height="50"
                     className=" rounded-2"

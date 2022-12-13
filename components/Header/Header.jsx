@@ -9,7 +9,7 @@ const NAV__LINK = [
         display: "Home",
     },
     {
-        path: "#movies",
+        path: "movies",
         display: "Movies",
     },
     {

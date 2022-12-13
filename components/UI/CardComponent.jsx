@@ -64,7 +64,7 @@ const CardComponent = () => {
 
                 {/* ========== card img ============= */}
                 <Col lg="6" md="6">
-                    <div className={`${classes.hero__img} text-end`}>
+                    <div className={`${classes.Image} text-end`}>
                         <Image alt="movie-image" src={CardImg} width="700" height="400" />
                     </div>
                 </Col>

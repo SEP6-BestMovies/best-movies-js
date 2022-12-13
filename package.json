@@ -14,7 +14,8 @@
     "react-slick": "^0.29.0",
     "reactstrap": "^9.1.5",
     "remixicon": "^2.5.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.18.6",
