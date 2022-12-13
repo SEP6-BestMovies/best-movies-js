@@ -7,7 +7,7 @@ import Link from "next/link";
 const ComponentItem = (props) => {
   const [config, setConfig] = useState("");
   const fetchConfig = () => {
-    axios.get(`https://api.themoviedb.org/3/configuration?api_key=${config.apiKey}`)
+    axios.get(`https://api.themoviedb.org/3/configuration?api_key=${process.env.apiKeyDb}`)
       .then((response) => {
         setConfig(response.data)
       });

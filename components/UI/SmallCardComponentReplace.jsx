@@ -7,7 +7,7 @@ import SectionSubtitle from "./SectionSubtitle";
 import classes from '../../styles/cardcomponent.module.css'
 import ComponentItem from "./ComponentItem";
 
-const SmallCardComponent = () => {
+const SmallCardComponentReplace = () => {
     const [genre, setGenre] = useState("");
     const fetchGenre = () => {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.apiKeyDb}&language=en-US`)
@@ -88,33 +88,25 @@ const SmallCardComponent = () => {
         }
     }, [filter]);
 
-    const active = `${classes.tab__btn__active}`;
-
     return (
-        <section id="portfolio" onLoad={() => handlePopular()} onLoadStart={() => handleConfig()} onLoadedData={() => handleGenre()}>
+        <section id="portfolio" onLoad={() => handlePopular()} onLoadStart={() => handleGenre()} onLoadedData={() => handleGenre()}>
             <Container>
 
                 <Row>
                     <Col lg="6" md="6" className="mb-5">
-                        <SectionSubtitle subtitle="Popular" />
+                        <SectionSubtitle subtitle="Popular right now" />
                     </Col>
 
                     <Col lg="6" md="6">
                         <div className={`${classes.tab__btns} text-end`}>
                             <button
-                                className={` ${filter === "action" ? active : ""
-                                    } secondary__btn text-white`}
+                                className={`secondary__btn text-white`}
                                 onClick={() => setFilter("action")}
                             ></button>
-                            <button
-                                className={`${filter === "fantasy" ? active : ""
-                                    } primary__btn text-white`}
-                                onClick={() => setFilter("fantasy")}
-                            >View popular movies</button>
                         </div>
                     </Col>
 
-                    {data?.map((item) => (
+                    {moviesData?.map((item) => (
                         <Col lg="4" md="4" sm="6" key={item.id}>
                             <ComponentItem item={item} />
                         </Col>
@@ -125,4 +117,4 @@ const SmallCardComponent = () => {
     );
 };
 
-export default SmallCardComponent;
+export default SmallCardComponentReplace;
