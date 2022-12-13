@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CardImg from '../../public/images/movie01.png';
 import classes from '../../styles/cardcomponent.module.css';
-import config from '../data/front-page';
+import { config } from '../data/front-page.js';
 
 const CardComponent = () => {
     const [movieData, setFact] = useState("");
