@@ -15,7 +15,7 @@ import {
    addDoc,
    Timestamp,
 } from "firebase/firestore";
-import config from "./config.js";
+import config from "./config";
 
 const AuthContext = createContext();
 
