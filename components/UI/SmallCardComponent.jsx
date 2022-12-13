@@ -1,31 +1,48 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Image from "next/image";
+import Link from "next/link";
 import { Container, Row, Col } from "reactstrap";
 import SectionSubtitle from "./SectionSubtitle";
 import classes from '../../styles/cardcomponent.module.css'
 import ComponentItem from "./ComponentItem";
 
 const SmallCardComponent = () => {
+    const [genre, setGenre] = useState("");
+    const fetchGenre = () => {
+        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${config.apiKey}&language=en-US`)
+            .then((response) => {
+                setGenre(response.data)
+            });
+    }
+    useEffect(() => {
+        fetchConfig()
+    }, []);
+
+    const handleGenre = () => {
+        fetchConfig()
+    }
+    console.log(genre)
+
 
     const [config, setConfig] = useState("");
     const fetchConfig = () => {
-      axios.get(`https://api.themoviedb.org/3/configuration?api_key=`)
-        .then((response) => {
-          setConfig(response.data)
-        });
+        axios.get(`https://api.themoviedb.org/3/configuration?api_key=${config.apiKey}`)
+            .then((response) => {
+                setConfig(response.data)
+            });
     }
     useEffect(() => {
-      fetchConfig()
+        fetchConfig()
     }, []);
-  
+
     const handleConfig = () => {
-      fetchConfig()
+        fetchConfig()
     }
-    console.log(config)
 
     const [moviesData, setPopular] = useState(new Array());
     const fetchPopular = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=`)
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.apiKey}`)
             .then((response) => {
                 setPopular(response.data.results)
             });
@@ -43,12 +60,24 @@ const SmallCardComponent = () => {
     const [data, setData] = useState();
 
     useEffect(() => {
+        /*
+        if (filter === "action") {
+            for (var i = 0; i < moviesData.length; i++) {
+                const filteredData = moviesData.filter(
+                    (item) => moviesData[i].genre_ids.includes(14)
+                );
+                setData(filteredData);
+            }
+        }
+        */
+
         if (filter === "action") {
             const filteredData = moviesData.filter(
                 (item) => item.adult === false
             );
             setData(filteredData);
         }
+
 
         if (filter === "fantasy") {
             const filteredData = moviesData.filter(
@@ -62,8 +91,9 @@ const SmallCardComponent = () => {
     const active = `${classes.tab__btn__active}`;
 
     return (
-        <section id="portfolio" onLoad={() => handlePopular()} onLoadStart={() => handleConfig()}>
+        <section id="portfolio" onLoad={() => handlePopular()} onLoadStart={() => handleConfig()} onLoadedData={() => handleGenre()}>
             <Container>
+
                 <Row>
                     <Col lg="6" md="6" className="mb-5">
                         <SectionSubtitle subtitle="Popular" />
@@ -75,16 +105,12 @@ const SmallCardComponent = () => {
                                 className={` ${filter === "action" ? active : ""
                                     } secondary__btn text-white`}
                                 onClick={() => setFilter("action")}
-                            >
-                                Action
-                            </button>
+                            ></button>
                             <button
                                 className={`${filter === "fantasy" ? active : ""
-                                    } secondary__btn text-white`}
+                                    } primary__btn text-white`}
                                 onClick={() => setFilter("fantasy")}
-                            >
-                                Fantasy
-                            </button>
+                            >View popular movies</button>
                         </div>
                     </Col>
 

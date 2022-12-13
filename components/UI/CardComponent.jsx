@@ -5,13 +5,14 @@ import SectionSubtitle from "./SectionSubtitle";
 import { Container, Row, Col } from "reactstrap";
 import Image from "next/image";
 import Link from "next/link";
-import CardImg from '../../public/images/movie01.png'
-import classes from '../../styles/cardcomponent.module.css'
+import CardImg from '../../public/images/movie01.png';
+import classes from '../../styles/cardcomponent.module.css';
+import config from '../data/front-page';
 
 const CardComponent = () => {
     const [movieData, setFact] = useState("");
     const fetchFact = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/550?&api_key=`)
+        axios.get(`https://api.themoviedb.org/3/movie/550?&api_key=${config.apiKey}`)
             .then((response) => {
                 setFact(response.data)
             });
@@ -26,7 +27,7 @@ const CardComponent = () => {
 
     const [popularMovies, setPopular] = useState(new Array());
     const fetchPopular = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=`)
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.apiKey}`)
             .then((response) => {
                 setPopular(response.data.results)
             });
@@ -42,6 +43,7 @@ const CardComponent = () => {
         <Container>
             <Row>
                 {/* ========== card content ============= */}
+
                 <Col lg="6" md="6">
                     <div className={`${classes.hero__content}`} onLoad={() => handleMovies()}>
                         <SectionSubtitle subtitle="Popular right now" />
