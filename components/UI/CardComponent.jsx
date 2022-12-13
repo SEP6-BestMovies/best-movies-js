@@ -7,12 +7,13 @@ import Image from "next/image";
 import Link from "next/link";
 import CardImg from '../../public/images/movie01.png';
 import classes from '../../styles/cardcomponent.module.css';
-import { config } from '../data/front-page.js';
 
 const CardComponent = () => {
+    const key = process.env.API_KEY;
+
     const [movieData, setFact] = useState("");
     const fetchFact = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/550?&api_key=${config.apiKey}`)
+        axios.get(`https://api.themoviedb.org/3/movie/550?&api_key=${process.env.apiKeyDb}`)
             .then((response) => {
                 setFact(response.data)
             });
@@ -27,7 +28,7 @@ const CardComponent = () => {
 
     const [popularMovies, setPopular] = useState(new Array());
     const fetchPopular = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${config.apiKey}`)
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apiKeyDb}`)
             .then((response) => {
                 setPopular(response.data.results)
             });
