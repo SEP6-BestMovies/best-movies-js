@@ -10,8 +10,8 @@ export default function Home() {
     <Fragment>
       <SmallCardComponentReplace />
       <CardComponent />
-      <SmallCardComponent />
       <ReviewsFrontPageSection />
+      <SmallCardComponent />
     </Fragment>
   );
 }

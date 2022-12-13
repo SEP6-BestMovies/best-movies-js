@@ -13,7 +13,7 @@ const CardComponent = () => {
 
     const [movieData, setFact] = useState("");
     const fetchFact = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/550?&api_key=${process.env.apiKeyDb}`)
+        axios.get(`https://api.themoviedb.org/3/movie/latest?&api_key=${process.env.apiKeyDb}`)
             .then((response) => {
                 setFact(response.data)
             });
@@ -40,14 +40,17 @@ const CardComponent = () => {
     const handlePopular = () => {
         fetchPopular()
     }
+
+    const baseUrl = "https://image.tmdb.org/t/p/";
+    const posterSize = "h632";
+    const imgPath = baseUrl + posterSize + movieData.poster_path;
+
     return <section className={`${classes.cardcomponent}`}>
         <Container>
             <Row>
-                {/* ========== card content ============= */}
-
                 <Col lg="6" md="6">
                     <div className={`${classes.hero__content}`} onLoad={() => handleMovies()}>
-                        <SectionSubtitle subtitle="Popular right now" />
+                        <SectionSubtitle subtitle="The latest uploaded" />
                         <h2 className="mt-3 mb-3">{movieData.original_title}</h2>
                         <h5 className="mb-4">Drama</h5>
                         <p>{movieData.overview}</p>
@@ -61,11 +64,9 @@ const CardComponent = () => {
                         </div>
                     </div>
                 </Col>
-
-                {/* ========== card img ============= */}
                 <Col lg="6" md="6">
                     <div className={`${classes.hero__img} text-end`}>
-                        <Image alt="movie-image" src={CardImg} width="700" height="400" />
+                        <Image alt="movie-image" src={imgPath} width="500" height="500" />
                     </div>
                 </Col>
             </Row>
