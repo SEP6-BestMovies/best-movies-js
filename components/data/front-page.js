@@ -1,3 +1,3 @@
 export const config = {
-    apiKeyDb: process.env.API_SECRET
+    apiKey: process.env.API_SECRET
   };
