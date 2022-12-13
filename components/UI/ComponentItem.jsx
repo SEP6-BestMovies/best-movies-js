@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ComponentItem = (props) => {
-  const { title, img, liveUrl, keyword } = props.item;
+  const { title, img, liveUrl, genre_ids } = props.item;
   return (
     <div className={`${classes.component__item}`}>
       <div className="bg-transparent">
         <h6>{title}</h6>
-        {keyword.map((item, index) => (
+        {genre_ids.map((item, index) => (
           <span className={`${classes.component__keyword}`} key={index}>
             {item}
           </span>
@@ -17,12 +17,12 @@ const ComponentItem = (props) => {
       </div>
 
       <div className={`${classes.component__img}`}>
-        <Image alt="component-img" src={img} width="380" height="250" />
+        <Image alt="component-img" src={""} width="380" height="250" />
       </div>
 
       <div className={`${classes.component__live} bg-transparent`}>
         <button className="primary__btn">
-          <Link href={liveUrl}>Action</Link>
+          <Link href={""}>Action</Link>
         </button>
       </div>
     </div>
