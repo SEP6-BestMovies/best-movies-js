@@ -11,7 +11,7 @@ import classes from '../../styles/cardcomponent.module.css'
 const CardComponent = () => {
     const [movieData, setFact] = useState("");
     const fetchFact = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/550?&api_key=`)
+        axios.get(`https://api.themoviedb.org/3/movie/550?&api_key=9aac6c120264793707739eac992613b7`)
             .then((response) => {
                 setFact(response.data)
             });
@@ -24,6 +24,20 @@ const CardComponent = () => {
         fetchFact()
     }
 
+    const [popularMovies, setPopular] = useState(new Array());
+    const fetchPopular = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=9aac6c120264793707739eac992613b7`)
+            .then((response) => {
+                setPopular(response.data.results)
+            });
+    }
+    useEffect(() => {
+        fetchPopular()
+    }, []);
+
+    const handlePopular = () => {
+        fetchPopular()
+    }
     return <section className={`${classes.cardcomponent}`}>
         <Container>
             <Row>

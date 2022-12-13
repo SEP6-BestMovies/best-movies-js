@@ -1,25 +1,58 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Container, Row, Col } from "reactstrap";
 import SectionSubtitle from "./SectionSubtitle";
 import classes from '../../styles/cardcomponent.module.css'
 import ComponentItem from "./ComponentItem";
-import moviesData from '../data/front-page';
 
 const SmallCardComponent = () => {
+
+    const [config, setConfig] = useState("");
+    const fetchConfig = () => {
+      axios.get(`https://api.themoviedb.org/3/configuration?api_key=9aac6c120264793707739eac992613b7`)
+        .then((response) => {
+          setConfig(response.data)
+        });
+    }
+    useEffect(() => {
+      fetchConfig()
+    }, []);
+  
+    const handleConfig = () => {
+      fetchConfig()
+    }
+    console.log(config)
+
+    const [moviesData, setPopular] = useState(new Array());
+    const fetchPopular = () => {
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=9aac6c120264793707739eac992613b7`)
+            .then((response) => {
+                setPopular(response.data.results)
+            });
+    }
+    useEffect(() => {
+        fetchPopular()
+    }, []);
+
+    const handlePopular = () => {
+        fetchPopular()
+    }
+    console.log(moviesData);
+
     const [filter, setFilter] = useState("action");
     const [data, setData] = useState();
 
     useEffect(() => {
         if (filter === "action") {
             const filteredData = moviesData.filter(
-                (item) => item.category === filter
+                (item) => item.adult === false
             );
             setData(filteredData);
         }
 
         if (filter === "fantasy") {
             const filteredData = moviesData.filter(
-                (item) => item.category === filter
+                (item) => item.adult === false
             );
 
             setData(filteredData);
@@ -29,26 +62,26 @@ const SmallCardComponent = () => {
     const active = `${classes.tab__btn__active}`;
 
     return (
-        <section id="portfolio">
+        <section id="portfolio" onLoad={() => handlePopular()} onLoadStart={() => handleConfig()}>
             <Container>
                 <Row>
                     <Col lg="6" md="6" className="mb-5">
-                        <SectionSubtitle subtitle="Categories" />
+                        <SectionSubtitle subtitle="Popular" />
                     </Col>
 
                     <Col lg="6" md="6">
                         <div className={`${classes.tab__btns} text-end`}>
                             <button
-                                className={` ${filter === "Mobile App" ? active : ""
+                                className={` ${filter === "action" ? active : ""
                                     } secondary__btn text-white`}
-                                onClick={() => setFilter("Mobile App")}
+                                onClick={() => setFilter("action")}
                             >
                                 Action
                             </button>
                             <button
-                                className={`${filter === "Web Design" ? active : ""
+                                className={`${filter === "fantasy" ? active : ""
                                     } secondary__btn text-white`}
-                                onClick={() => setFilter("Web Design")}
+                                onClick={() => setFilter("fantasy")}
                             >
                                 Fantasy
                             </button>
