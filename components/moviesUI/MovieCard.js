@@ -10,9 +10,9 @@ const MovieCard = ({ result }) => {
         <div class="card-group" display="flex" key={result.id} className="data__container"
         onClick={() => {
             if (result.media_type === "tv") {
-              router.push(`/discover/tv/${result.id}`);
+              router.push(`/movies/${result.id}`);
             } else {
-              router.push(`discover/movie/${result.id}`);
+              router.push(`movie/${result.id}`);
             }
           }}
         >

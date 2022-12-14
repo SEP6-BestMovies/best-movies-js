@@ -3,7 +3,7 @@ import Head from "next/head";
 import Genre from "../../components/moviesUI/Genre";
 import Results from "../../components/moviesUI/Results";
 import requests from "../../utils/requests"; 
-import { Fragment } from "react";
+
 
 export default function Home({ results }) {
   return (
@@ -13,6 +13,7 @@ export default function Home({ results }) {
         {/* Results */}
         <Results results={results} />
       </Container>
+
   );
 }
 
