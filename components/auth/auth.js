@@ -1,3 +1,4 @@
+import firebaseConfig from "./config";
 import { useState, useEffect, useContext, createContext } from "react";
 import { initializeApp, getApps } from "firebase/app";
 import {
@@ -15,7 +16,6 @@ import {
    addDoc,
    Timestamp,
 } from "firebase/firestore";
-import firebaseConfig from "./config";
 
 const AuthContext = createContext();
 
