@@ -40,7 +40,7 @@ const movies = ({
         <div className='card-group' >
           {movies.map(movie => (
             <li key={movie.id}>
-                <Image alt="component-img" src={imgPath + movie.backdrop_path} width="379" height="522" />
+                <Image alt="component-img" src={imgPath + movie.backdrop_path} width="380" height="520"/>
                 <h5 align='center'>{movie.title}</h5>
             </li>
       ))} </div>)} 

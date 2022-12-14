@@ -32,7 +32,7 @@ const Actors = () => {
                     <div className='card-group' >
                         {actors.map(actor => (
                             <li key={actor.id}>
-                                <Image alt="component-img" src={imgPath + actor.profile_path} width="379" height="522" />
+                                <Image alt="component-img" src={imgPath + actor.profile_path} width="379" height="515" />
                                 <h4 align='center'>{actor.name}</h4>
                             </li>
                         ))} </div>)} 
