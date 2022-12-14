@@ -63,8 +63,8 @@ const CardComponent = () => {
                     </div>
                 </Col>
                 <Col lg="6" md="6">
-                    <div className={`${classes.hero__img} text-end`}>
-                        <Image alt="movie-image" src={imgPath} width="500" height="500" />
+                    <div className={`${classes.Image} text-end`}>
+                        <Image alt="movie-image" src={CardImg} width="700" height="400" />
                     </div>
                 </Col>
             </Row>

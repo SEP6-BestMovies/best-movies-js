@@ -63,7 +63,65 @@ const ReviewsFrontPageSection = () => {
                   </div>
                 </div>
 
-                <p>{review.content}</p>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi saepe eveniet dolores molestias nisi ullam quis
+                  delectus inventore, quidem beatae ipsa pariatur doloribus
+                  corrupti! Quisquam expedita minima, neque et quis, fugiat hic
+                  iste possimus vitae perspiciatis consequatur quod modi
+                  dignissimos.
+                </p>
+              </div>
+
+              <div className={`${classes.testimonial__item}`}>
+                <div className={`${classes.testimonial__client}`}>
+                  <Image
+                    alt="client-img"
+                    //src="/images/hero.jpg"
+                    width="50"
+                    height="50"
+                    className=" rounded-2"
+                  />
+
+                  <div>
+                    <h6>Henry Nichols</h6>
+                    <h6>Parent of two</h6>
+                  </div>
+                </div>
+
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi saepe eveniet dolores molestias nisi ullam quis
+                  delectus inventore, quidem beatae ipsa pariatur doloribus
+                  corrupti! Quisquam expedita minima, neque et quis, fugiat hic
+                  iste possimus vitae perspiciatis consequatur quod modi
+                  dignissimos.
+                </p>
+              </div>
+
+              <div className={`${classes.testimonial__item}`}>
+                <div className={`${classes.testimonial__client}`}>
+                  <Image
+                    alt="client-img"
+                    //src="/images/hero.jpg"
+                    width="50"
+                    height="50"
+                    className=" rounded-2"
+                  />
+
+                  <div>
+                    <h6>Adam Smith</h6>
+                    <h6>Financial Accountant</h6>
+                  </div>
+                </div>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi saepe eveniet dolores molestias nisi ullam quis
+                  delectus inventore, quidem beatae ipsa pariatur doloribus
+                  corrupti! Quisquam expedita minima, neque et quis, fugiat hic
+                  iste possimus vitae perspiciatis consequatur quod modi
+                  dignissimos.
+                </p>
               </div>
             </Slider>
           </Col>
