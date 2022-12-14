@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { bgImage, coverImage } from "../../utils/image";
-import { Back, VideoCircle } from "iconsax-react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import MovieCard from "../../components/moviesUI/MovieCard";

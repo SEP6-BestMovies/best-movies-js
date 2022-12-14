@@ -7,7 +7,6 @@ import { coverImage } from "../../utils/image";
   
 const MovieCard = ({ data, title }) => {
     const router = useRouter(); 
-    
     return (
       <Wrapper>
         <h4 className="title">{title}</h4>
