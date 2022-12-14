@@ -100,6 +100,15 @@ jobs:
       - name: Setup GCP environment
         uses: google-github-actions/setup-gcloud@v1
 
+      - name: Firebase hosting
+        run: npm ci && npm run build
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+          projectId: ${{ env.PROJECT_ID }}
+
       - name: Build and Push Container
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY : ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
