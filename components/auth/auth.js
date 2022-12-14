@@ -15,7 +15,7 @@ import {
    addDoc,
    Timestamp,
 } from "firebase/firestore";
-import config from "./config";
+import firebaseConfig from "./config";
 
 const AuthContext = createContext();
 
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 const useAuthProvider = () => {
   let firebaseApp;
   if (!getApps().length) {
-    firebaseApp = initializeApp(config);
+    firebaseApp = initializeApp(firebaseConfig);
     }
     
   const auth = getAuth(firebaseApp);
