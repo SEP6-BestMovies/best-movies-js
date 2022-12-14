@@ -83,6 +83,28 @@ footer {
   background: #171f38;
 }
 
+input {
+  background: #171f38;
+  border: none;
+  outline: none;
+  color: #808dad;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+label {
+  color: #808dad;
+}
+
+button {
+  background: #171f38;
+  border: none;
+  outline: none;
+  color: #808dad;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
 @media only screen and (max-width: 992px) {
   p {
     font-size: 0.9rem !important;
