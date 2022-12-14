@@ -21,7 +21,7 @@ const movies = ({
 
   const searchMovies = async (e) => {
     e.preventDefault();
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&query=${query}&page=1`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=9aac6c120264793707739eac992613b7&language=en-US&query=${query}&page=1`;
     const res = await fetch(url);
     const data = await res.json();
     setMovies(data.results);
