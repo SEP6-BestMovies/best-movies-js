@@ -57,6 +57,18 @@ env:
   IMAGE_NAME: com/via/sep6/bestmovies/frontend 
 
 jobs:
+  forebase-hosting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+          projectId: ${{ env.PROJECT_ID }}
+
   deploy:
     # Add 'id-token' with the intended permissions for workload identity federation
     permissions:
@@ -100,15 +112,6 @@ jobs:
       - name: Setup GCP environment
         uses: google-github-actions/setup-gcloud@v1
 
-      - name: Firebase hosting
-        run: npm ci && npm run build
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: live
-          projectId: ${{ env.PROJECT_ID }}
-
       - name: Build and Push Container
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY : ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
@@ -137,4 +140,7 @@ jobs:
       # If required, use the Cloud Run url output in later steps
       - name: Show Output
         run: echo ${{ steps.deploy.outputs.url }}
+
+
+
 
