@@ -44,7 +44,6 @@ const movies = ({
                 <h5 align='center'>{movie.title}</h5>
             </li>
       ))} </div>)} 
-
     
       <Head>
         <title>Movies</title>
@@ -72,22 +71,22 @@ export async function getServerSideProps() {
     getFantasyMovieRes,
     getComedyMovieRes,
   ] = await Promise.all([
-    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1
+    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=9aac6c120264793707739eac992613b7&language=en-US&page=1
       `),
     fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=9aac6c120264793707739eac992613b7&language=en-US&page=1`
     ),
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=27`
+      `https://api.themoviedb.org/3/discover/movie?api_key=9aac6c120264793707739eac992613b7&with_genres=27`
     ),
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=878`
+      `https://api.themoviedb.org/3/discover/movie?api_key=9aac6c120264793707739eac992613b7&with_genres=878`
     ),
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=14`
+      `https://api.themoviedb.org/3/discover/movie?api_key=9aac6c120264793707739eac992613b7&with_genres=14`
     ),
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=35`
+      `https://api.themoviedb.org/3/discover/movie?api_key=9aac6c120264793707739eac992613b7&with_genres=35`
     ),
   ]);
 
