@@ -9,11 +9,9 @@ import CardImg from '../../public/images/movie01.png';
 import classes from '../../styles/cardcomponent.module.css';
 
 const CardComponent = () => {
-    const key = process.env.API_KEY;
-
     const [movieData, setFact] = useState("");
     const fetchFact = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/latest?&api_key=${process.env.apiKeyDb}`)
+        axios.get(`https://api.themoviedb.org/3/movie/978?&api_key=${process.env.apiKeyDb}`)
             .then((response) => {
                 setFact(response.data)
             });
@@ -50,7 +48,7 @@ const CardComponent = () => {
             <Row>
                 <Col lg="6" md="6">
                     <div className={`${classes.hero__content}`} onLoad={() => handleMovies()}>
-                        <SectionSubtitle subtitle="The latest uploaded" />
+                        <SectionSubtitle subtitle="Inpisration" />
                         <h2 className="mt-3 mb-3">{movieData.original_title}</h2>
                         <h5 className="mb-4">Drama</h5>
                         <p>{movieData.overview}</p>
