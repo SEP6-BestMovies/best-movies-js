@@ -19,13 +19,12 @@ import {
 
 const AuthContext = createContext();
 
-export const useAuth = () => useContext(AuthContext);
-
 export const AuthProvider = ({ children }) => {
   const auth = useAuthProvider();
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 };
 
+export const useAuth = () => useContext(AuthContext);
 
 const useAuthProvider = () => {
   let firebaseApp;
