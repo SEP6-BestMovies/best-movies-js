@@ -2,37 +2,39 @@ import React, { useRef, useEffect } from "react";
 import { Container } from "reactstrap";
 import classes from "./header.module.css";
 import Link from "next/link";
-
-const NAV__LINK = [
-    {
-        path: "/",
-        display: "Home",
-    },
-    {
-        path: "#movies",
-        display: "Movies",
-    },
-    {
-        path: "#actors",
-        display: "Actors",
-    },
-    {
-        path: "#reviews",
-        display: "Reviews",
-    },
-    {
-        path: "login", 
-        display: "Login",
-    },
-    {
-        path: "register",
-        display: "Register",
-    },
-];
+import { useAuth } from "../auth/auth.js";
 
 const Header = () => {
     const headerRef = useRef(null);
     const menuRef = useRef(null);
+    const auth = useAuth();
+
+    const NAV__LINK = [
+        {
+            path: "/",
+            display: "Home",
+        },
+        {
+            path: "#movies",
+            display: "Movies",
+        },
+        {
+            path: "#actors",
+            display: "Actors",
+        },
+        {
+            path: "#reviews",
+            display: "Reviews",
+        },
+        {
+            path: !auth.user ? "login" : "logout",
+            display: !auth.user ? "Login" : "Logout",
+        },
+        {
+            path: "register",
+            display: !auth.user ? "Register" : "",
+        },
+    ];
     
     const headerFunc = () => {
         if (
