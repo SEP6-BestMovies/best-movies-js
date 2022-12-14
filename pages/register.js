@@ -46,32 +46,31 @@ const Login = () => {
     return (
       <div className={styles.container}>
         <Head>
-          <title>NextJS Firebase Auth Starter Kit</title>
+          <title>Sign up</title>
           <meta
             name="description"
-            content="A starter kit created by @official-carledwardfp"
           />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/logo.ico" />
         </Head>
 
         <main className={styles.main}>
-          <h1 className={styles.title}>Signup</h1>
+          <h1>Signup</h1>
           <br />
           <form onSubmit={(event) => signUp(event, email, password)}>
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">Email</label><br/>
             <input
               type="email"
               name="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-            />
-            <label htmlFor="password">Password</label>
+            /><br/>
+            <label htmlFor="password">Password</label><br/>
             <input
               type="password"
               name="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-            />
+            /><br /><br />
             <button type="submit">Submit</button>
           </form>
           <Link href="/">&larr; Go back</Link>

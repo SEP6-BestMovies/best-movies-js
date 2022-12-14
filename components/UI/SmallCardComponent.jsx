@@ -42,7 +42,7 @@ const SmallCardComponent = () => {
 
     const [moviesData, setPopular] = useState(new Array());
     const fetchPopular = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apiKeyDb}`)
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.apiKeyDb}`)
             .then((response) => {
                 setPopular(response.data.results)
             });
@@ -96,7 +96,7 @@ const SmallCardComponent = () => {
 
                 <Row>
                     <Col lg="6" md="6" className="mb-5">
-                        <SectionSubtitle subtitle="Popular" />
+                        <SectionSubtitle subtitle="Top rated" />
                     </Col>
 
                     <Col lg="6" md="6">
@@ -110,7 +110,7 @@ const SmallCardComponent = () => {
                                 className={`${filter === "fantasy" ? active : ""
                                     } primary__btn text-white`}
                                 onClick={() => setFilter("fantasy")}
-                            >View popular movies</button>
+                            >View the top rated movies</button>
                         </div>
                     </Col>
 

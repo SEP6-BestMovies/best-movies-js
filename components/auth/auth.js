@@ -86,6 +86,8 @@ const useAuthProvider = () => {
   };
 
   return {
+    auth,
+    db,
     user,
     loading,
     signIn,
