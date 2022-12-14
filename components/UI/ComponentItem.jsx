@@ -3,6 +3,7 @@ import axios from "axios";
 import classes from "../../styles/component-item.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import genres from "../data/genre";
 
 const ComponentItem = (props) => {
   const [config, setConfig] = useState("");
@@ -25,11 +26,21 @@ const ComponentItem = (props) => {
   const baseUrl = "https://image.tmdb.org/t/p/";
   const posterSize = "h632";
   const imgPath = baseUrl + posterSize + poster_path;
+
+  const genre_types = [];
+  for (let index = 0; index < genre_ids.length; index++) {
+    for (let j = 0; j < genres.length; j++) {
+      if (genre_ids[index] === genres[j].id) {
+        genre_types.push(genres[j].name);
+      }
+    }
+  }
+
   return (
     <div className={`${classes.component__item}`} onLoadStart={() => handleConfig()}>
       <div className="bg-transparent">
         <h6>{title}</h6>
-        {genre_ids.map((item, index) => (
+        {genre_types.map((item, index) => (
           <span className={`${classes.component__keyword}`} key={index}>
             {item}
           </span>
