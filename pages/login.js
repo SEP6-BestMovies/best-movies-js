@@ -43,20 +43,28 @@ const Login = () => {
   // if there is no signed in user
   if (!auth.user) {
       return (
-          <div className={styles.container}>
+        <div className={styles.container}>
+          <Head>
+            <title>Sign in</title>
+            <meta
+              name="description"
+            />
+            <link rel="icon" href="/logo.ico" />
+          </Head>
               <main className="">
-                  <h1>Unlimited films, TV programmes and more</h1>
+            <h1>Sign in below</h1>
+            <br/>
                   <form onSubmit={(event) => signIn(event, email, password)}>
-                      <label htmlFor="email">Email Address</label>
+                      <label htmlFor="email">Email Address</label><br/>
                       <input
                           type="email"
                           name="email"
-                          value={email} onChange={(event) => setEmail(event.target.value)} />
-                      <label htmlFor="password">Password</label>
+                value={email} onChange={(event) => setEmail(event.target.value)} /><br />
+              <label htmlFor="password">Password</label><br />
                       <input
                           type="password"
                           name="password"
-                          value={password} onChange={(event) => setPassword(event.target.value)} />
+                value={password} onChange={(event) => setPassword(event.target.value)} /><br /><br />
                       <button type="submit">Submit</button>
                   </form>
               </main>
