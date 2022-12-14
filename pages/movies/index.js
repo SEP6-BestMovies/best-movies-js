@@ -1,7 +1,9 @@
-import { Card, CardGroup, Container } from "reactstrap";
+import { Card, Container } from "reactstrap";
 import Head from "next/head";
 import MovieCard from "../../components/moviesUI/MovieCard";
-
+import React, { useState } from 'react';
+import Image from 'next/image';
+import styled from "styled-components";
 
 const movies = ({
   getTopRatedMovies,
@@ -11,8 +13,39 @@ const movies = ({
   getFantasyMovie,
   getComedyMovie,
 }) => {
+  const [query, setQuery] = useState('');
+  const [movies, setMovies] = useState([]);
+  const baseUrl = "https://image.tmdb.org/t/p/";
+  const posterSize = "h632";
+  const imgPath = baseUrl + posterSize;
+
+  const searchMovies = async (e) => {
+    e.preventDefault();
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&query=${query}&page=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    setMovies(data.results);
+  }
+
   return (
-    <div>
+    <Wrapper>
+      <Container>
+        <form class="center" onSubmit={searchMovies}>
+              <label> Movie Name: <br/>
+                  <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
+              </label>
+            <button type="submit">Search</button>
+      </form>
+      {movies.length > 0 && (
+        <div className='card-group' >
+          {movies.map(movie => (
+            <li key={movie.id}>
+                <Image alt="component-img" src={imgPath + movie.backdrop_path} width="379" height="522" />
+                <h5 align='center'>{movie.title}</h5>
+            </li>
+      ))} </div>)} 
+
+    
       <Head>
         <title>Movies</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -23,9 +56,10 @@ const movies = ({
       <MovieCard data={getSciFiMovies} title="Sci-Fi" />
       <MovieCard data={getFantasyMovie} title="Fantasy" />
       <MovieCard data={getComedyMovie} title="Comedy" />
-    </div>
+      </Container>
+      </Wrapper>
   );
-};
+  };
 
 export default movies;
 
@@ -73,20 +107,6 @@ export async function getServerSideProps() {
     getComedyMovieRes.json(),
   ]);
 
-  const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState([]);
-  const baseUrl = "https://image.tmdb.org/t/p/";
-  const posterSize = "h632";
-  const imgPath = baseUrl + posterSize;
-
-  const searchMovies = async (e) => {
-    e.preventDefault();
-    const url = `https://api.themoviedb.org/3/search/person?api_key=9aac6c120264793707739eac992613b7&language=en-US&query=${query}&page=1&include_adult=false`;
-    const res = await fetch(url);
-    const data = await res.json();
-    setMovies(data.results);
-  }
-
   return {
     props: {
       getUpComingMovies: getUpComingMovies,
@@ -95,7 +115,13 @@ export async function getServerSideProps() {
       getSciFiMovies: getSciFiMovies,
       getFantasyMovie: getFantasyMovie,
       getComedyMovie: getComedyMovie,
-      getSearchedMovies: movies,
     },
   };
 }
+
+const Wrapper = styled.div`
+  .container {
+    allign: center;
+    max-width: 1234px;
+    margin: 100px auto;
+`;

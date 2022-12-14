@@ -29,13 +29,13 @@ const Actors = () => {
                     <button type="submit">Search</button>
                 </form>    
                 {actors.length > 0 && (
-                    <Card className='card-group' >
+                    <div className='card-group' >
                         {actors.map(actor => (
                             <li key={actor.id}>
                                 <Image alt="component-img" src={imgPath + actor.profile_path} width="379" height="522" />
-                                <h3 align='center'>{actor.name}</h3>
+                                <h4 align='center'>{actor.name}</h4>
                             </li>
-                        ))} </Card>)} 
+                        ))} </div>)} 
             </Container>
         </Wrapper>
     );
