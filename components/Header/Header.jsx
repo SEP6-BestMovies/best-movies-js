@@ -19,7 +19,7 @@ const Header = () => {
             display: "Movies",
         },
         {
-            path: "#actors",
+            path: "/actors",
             display: "Actors",
         },
         {

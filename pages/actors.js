@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useAuth } from '../components/auth/auth';
-import { setErrorMessage } from '../components/auth/setErrorMessage';
-import styles from "../styles/Home.module.css";
-import { Container, Row, Col } from "reactstrap";
-import ComponentItem from '../components/UI/ComponentItem';
 import Image from 'next/image';
+import { Card, Container, Form } from "reactstrap";
+import styled from "styled-components";
 
 
 const Actors = () => {
@@ -25,30 +20,32 @@ const Actors = () => {
     }
 
     return (
-        <div className={styles.container}>
-        <div>
-            <form onSubmit={searchActors}>
-                <label>
-                    Actor Name: <br/>
+        <Wrapper>
+            <Container>
+                <form class="center" onSubmit={searchActors}>
+                    <label>Actor Name: <br/>
                     <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
-                </label>
-                <button type="submit">Search</button>
-            </form>
-            {actors.length > 0 && (
-                <ul>
-                    {actors.map(actor => (
-                        <li key={actor.id}>
-                            <p>
-                                {actor.name}
-                            </p>
-                            <Image alt="component-img" src={imgPath + actor.profile_path} width="380" height="520" />
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-        </div>
+                    </label>
+                    <button type="submit">Search</button>
+                </form>    
+                {actors.length > 0 && (
+                    <Card className='card-group' >
+                        {actors.map(actor => (
+                            <li key={actor.id}>
+                                <Image alt="component-img" src={imgPath + actor.profile_path} width="379" height="522" />
+                                <h3 align='center'>{actor.name}</h3>
+                            </li>
+                        ))} </Card>)} 
+            </Container>
+        </Wrapper>
     );
 };
+
+const Wrapper = styled.div`
+  .container {
+    allign: center;
+    max-width: 1234px;
+    margin: 100px auto;
+`;
 
 export default Actors;

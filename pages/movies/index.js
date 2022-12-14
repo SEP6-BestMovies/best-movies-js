@@ -1,8 +1,5 @@
 import { Card, CardGroup, Container } from "reactstrap";
 import Head from "next/head";
-import Genre from "../../components/moviesUI/Genre";
-import Results from "../../components/moviesUI/Results";
-import requests from "../../utils/requests"; 
 import MovieCard from "../../components/moviesUI/MovieCard";
 
 
@@ -101,36 +98,4 @@ export async function getServerSideProps() {
       getSearchedMovies: movies,
     },
   };
-
-  const Actors = () => {
-    
-
-    return (
-      <div className={styles.container}>
-        <div>
-          <form onSubmit={searchActors}>
-            <label>
-              Actor Name: <br />
-              <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
-            </label>
-            <button type="submit">Search</button>
-          </form>
-          {actors.length > 0 && (
-            <ul>
-              {actors.map(actor => (
-                <li key={actor.id}>
-                  <p>
-                    {actor.name}
-                  </p>
-                  <Image alt="component-img" src={imgPath + actor.profile_path} width="380" height="520" />
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
-    );
-  };
-
-  export default Actors;
 }
