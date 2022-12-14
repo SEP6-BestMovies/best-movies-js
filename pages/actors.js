@@ -13,7 +13,7 @@ const Actors = () => {
 
     const searchActors = async (e) => {
         e.preventDefault();
-        const url = `https://api.themoviedb.org/3/search/person?api_key=9aac6c120264793707739eac992613b7&language=en-US&query=${query}&page=1&include_adult=false`;
+        const url = `https://api.themoviedb.org/3/search/person?api_key=${process.env.apiKeyDb}&language=en-US&query=${query}&page=1&include_adult=false`;
         const res = await fetch(url);
         const data = await res.json();
         setActors(data.results);
