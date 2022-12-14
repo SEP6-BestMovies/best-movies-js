@@ -1,11 +1,11 @@
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+    apiKey: 'AIzaSyCyF_MCjR37AkDdbnz3FkepXMyg5NhRMMo',
+    authDomain: 'best-movies-js.firebaseapp.com',
+    projectId: 'best-movies-js',
+    storageBucket: 'best-movies-js.appspot.com',
+    messagingSenderId: '37522096983',
+    appId: '1:37522096983:web:6b5e0f64b7e7ec6198b412',
+    measurementId: 'G-S2HJYJZX4M',
   };
 
   export default firebaseConfig;
