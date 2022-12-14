@@ -22,9 +22,6 @@ const Movie = ({ movieDetails, similarMovies, castMember }) => {
                     style={{
                         background: `url(${bgImage + movieDetails.backdrop_path}) no-repeat center center/cover `,
                     }}>
-                    <div onClick={() => router.back()} className="return-page">
-                        <Back size="32" color="#d9e3f0" className="return-icon" />
-                    </div>
                 </div>
 
                 <div className="container">
@@ -112,39 +109,13 @@ const Wrapper = styled.div`
   .bg_container {
     width: 100%;
     height: 60vh;
+    margin: 100px auto;
     position: relative;
-  }
-
-  .return-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 80px;
-    left: 150px;
-    column-gap: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    width: max-content;
-    border-radius: 12px;
-    padding: 0 10px;
-    cursor: pointer;
-    border: 1px solid white;
-
-    @media (max-width: 768px) {
-      left: 20px;
-    }
-  }
-
-  .return-icon {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    border-radius: 5px;
   }
 
   .container {
     max-width: 1234px;
-    margin: 20px auto;
+    margin: 100px auto;
   }
 
   .container-image {
@@ -170,7 +141,7 @@ const Wrapper = styled.div`
 
     @media (max-width: 768px) {
       font-size: 40px;
-      margin: 15px 0;
+      margin: 100px 0;
       text-align: center;
     }
 
@@ -294,6 +265,7 @@ const Wrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 100px 0;
     }
   }
 
