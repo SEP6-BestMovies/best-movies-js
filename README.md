@@ -11,7 +11,7 @@
 ## Technologies Used
 - Next.js
 - Axios
-- Firebase
+- Firebase / Authentication
 - Bootstrap
 - Docker
 - Google Cloud
