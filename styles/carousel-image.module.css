@@ -1,0 +1,19 @@
+.carousel_top {
+  margin-top: 130px !important;
+}
+
+.carousel_wrapper {
+  max-height: 70%;
+}
+
+.carousel_img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: auto;
+}
+
+.carousel_img_container {
+  width: 500px;
+  text-align: center;
+}

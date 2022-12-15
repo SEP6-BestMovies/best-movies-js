@@ -4,6 +4,7 @@ import CardComponent from '../components/UI/CardComponent';
 import SmallCardComponent from '../components/UI/SmallCardComponent';
 import ReviewsFrontPageSection from '../components/UI/ReviewsFrontPageSection';
 import SmallCardComponentReplace from '../components/UI/SmallCardComponentReplace';
+import CarouselImage from '../components/UI/CarouselImage';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       </Head>
       <SmallCardComponentReplace />
       <CardComponent />
+      <CarouselImage />
       <SmallCardComponent />
     </Fragment>
   );

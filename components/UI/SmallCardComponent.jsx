@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Image from "next/image";
-import Link from "next/link";
 import { Container, Row, Col } from "reactstrap";
 import SectionSubtitle from "./SectionSubtitle";
 import classes from '../../styles/cardcomponent.module.css'
@@ -93,7 +91,6 @@ const SmallCardComponent = () => {
     return (
         <section id="portfolio" onLoad={() => handlePopular()} onLoadStart={() => handleConfig()} onLoadedData={() => handleGenre()}>
             <Container>
-
                 <Row>
                     <Col lg="6" md="6" className="mb-5">
                         <SectionSubtitle subtitle="Top rated" />
