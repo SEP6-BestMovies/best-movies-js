@@ -5,7 +5,6 @@ import SectionSubtitle from "./SectionSubtitle";
 import { Container, Row, Col } from "reactstrap";
 import Image from "next/image";
 import Link from "next/link";
-import CardImg from '../../public/images/movie01.png';
 import classes from '../../styles/cardcomponent.module.css';
 
 const CardComponent = () => {
@@ -22,21 +21,6 @@ const CardComponent = () => {
 
     const handleMovies = () => {
         fetchFact()
-    }
-
-    const [popularMovies, setPopular] = useState(new Array());
-    const fetchPopular = () => {
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.apiKeyDb}`)
-            .then((response) => {
-                setPopular(response.data.results)
-            });
-    }
-    useEffect(() => {
-        fetchPopular()
-    }, []);
-
-    const handlePopular = () => {
-        fetchPopular()
     }
 
     const baseUrl = "https://image.tmdb.org/t/p/";
@@ -56,15 +40,12 @@ const CardComponent = () => {
                             <button className="primary__btn">
                                 <Link href="#">Add to favourites</Link>
                             </button>
-                            <button className="secondary__btn">
-                                <Link href="#">Read more</Link>
-                            </button>
                         </div>
                     </div>
                 </Col>
                 <Col lg="6" md="6">
                     <div className={`${classes.Image} text-end`}>
-                        <Image alt="movie-image" src={CardImg} width="700" height="400" />
+                        <Image alt="movie-image" src={imgPath} width="500" height="400" />
                     </div>
                 </Col>
             </Row>
