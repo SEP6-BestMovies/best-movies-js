@@ -93,7 +93,6 @@ const SmallCardComponent = () => {
     return (
         <section id="portfolio" onLoad={() => handlePopular()} onLoadStart={() => handleConfig()} onLoadedData={() => handleGenre()}>
             <Container>
-
                 <Row>
                     <Col lg="6" md="6" className="mb-5">
                         <SectionSubtitle subtitle="Top rated" />
