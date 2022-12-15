@@ -8,13 +8,6 @@
 > The system is built using a Node.js, full-stack Next.js framework and can register new users, displaying an initial list of movies, displaying movies from random categories, filter movies and actors and create a list of watched movies.
 > Live demo [_here_](https://movies-google-run-2z2522fkva-lz.a.run.app). 
 
-
-## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-
 ## Technologies Used
 - Next.js
 - Axios
