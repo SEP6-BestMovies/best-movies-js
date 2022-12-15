@@ -6,7 +6,7 @@
 The development process began with creating a physical architecture of the system. The application is a Docker containerized REST API service hosted both on Google Cloud and Vercel that uses Firebase SDK as a storage container.
 
 The system is built using a Node.js, full-stack Next.js framework and can register new users, displaying an initial list of movies, displaying movies from random categories, filter movies and actors and create a list of watched movies.
-> Live demo [_here_](https://www.example.com). 
+> Live demo [_here_](https://movies-google-run-2z2522fkva-lz.a.run.app). 
 
 
 ## General Information
