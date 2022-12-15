@@ -5,4 +5,10 @@
   .carousel_wrapper {
     max-height: 70%;
   }
+
+  .carousel_img {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
   

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import classes from '../../styles/carousel-image.module.css'
 
 function CarouselImage(props) {
   
@@ -25,11 +26,11 @@ function CarouselImage(props) {
   }
 
   return (
-    <Carousel>
+    <Carousel className={`${classes.carousel_top}`}>
       {movie_paths.map((image, index) => (
         <Carousel.Item key={index}>
           <img
-            className="d-block w-100"
+            className={`${classes.carousel_img}`}
             src={image}
             alt={image.alt}
           />
