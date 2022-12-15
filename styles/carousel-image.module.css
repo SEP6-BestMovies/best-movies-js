@@ -1,5 +1,5 @@
 .carousel_top {
-  margin-top: 130px !important;
+  margin-top: 50px !important;
 }
 
 .carousel_wrapper {
@@ -16,4 +16,10 @@
 .carousel_img_container {
   width: 500px;
   text-align: center;
+}
+
+.carousel_heading {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 0%;
 }
