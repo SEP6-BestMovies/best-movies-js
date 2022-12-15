@@ -34,10 +34,6 @@ function CarouselImage(props) {
             src={image}
             alt={image.alt}
           />
-          <Carousel.Caption>
-            <h3>{image}</h3>
-            <p>{image.description}</p>
-          </Carousel.Caption>
         </Carousel.Item>
       ))}
     </Carousel>
