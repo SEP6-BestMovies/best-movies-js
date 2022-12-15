@@ -55,8 +55,22 @@ footer {
 .primary__btn a {
   text-decoration: none;
   color: #EFFA2C;
-  background: transparent !important;
+  border: 1px solid #EFFA2C !important;
+  background: transparent !important; 
 }
+
+.btn {
+  text-decoration: none;
+  padding: 7px 25px !important;
+  color: #fff !important;
+  border: 1px solid #EFFA2C !important;
+}
+
+.btn:active {
+  color: #171f38 !important;
+  background-color: #EFFA2C !important;
+}
+
 
 .secondary__btn {
   background: transparent;
@@ -68,9 +82,10 @@ footer {
 .secondary__btn a {
   color: #EFFA2C !important;
 }
+
 .primary__btn a:hover,
 .secondary__btn a:hover {
-  color: #EFFA2C;
+  color: #fff !important;
 }
 
 ::-webkit-scrollbar {

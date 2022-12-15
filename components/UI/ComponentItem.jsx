@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import classes from "../../styles/component-item.module.css";
 import Image from "next/image";
-import Link from "next/link";
 import genres from "../data/genre";
+import { useAuth } from "../auth/auth";
+import { 
+  getFirestore,
+  doc, 
+  updateDoc, 
+  arrayUnion, 
+}  from "firebase/firestore";
 
 const ComponentItem = (props) => {
   const [config, setConfig] = useState("");
@@ -22,7 +28,7 @@ const ComponentItem = (props) => {
   }
   console.log(config)
 
-  const { title, poster_path, genre_ids } = props.item;
+  const { title, poster_path, genre_ids, id } = props.item;
   const baseUrl = "https://image.tmdb.org/t/p/";
   const posterSize = "h632";
   const imgPath = baseUrl + posterSize + poster_path;
@@ -34,6 +40,14 @@ const ComponentItem = (props) => {
         genre_types.push(genres[j].name);
       }
     }
+  }
+
+  const auth = useAuth();
+  const db = getFirestore();
+
+  const addToWatched = async (e) => {
+    const userRef = doc(db, "users", auth.user.email);
+    updateDoc(userRef, {watched: arrayUnion(id)});
   }
 
   return (
@@ -52,9 +66,7 @@ const ComponentItem = (props) => {
       </div>
 
       <div className={`${classes.component__live} bg-transparent`}>
-        <button className="primary__btn">
-          <Link href={poster_path}>Action</Link>
-        </button>
+        <button className="btn" onClick={addToWatched}>Add to Watched</button>
       </div>
     </div>
   );

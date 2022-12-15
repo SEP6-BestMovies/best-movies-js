@@ -1,4 +1,4 @@
-import { Card, Container } from "reactstrap";
+import { Container } from "reactstrap";
 import Head from "next/head";
 import MovieCard from "../../components/moviesUI/MovieCard";
 import React, { useState } from 'react';
@@ -29,7 +29,8 @@ const movies = ({
 
   return (
     <Wrapper>
-      <Container>
+      <div>
+        <Container>
         <form class="center" onSubmit={searchMovies}>
               <label> Movie Name: <br/>
                   <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
@@ -49,13 +50,14 @@ const movies = ({
         <title>Movies</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <MovieCard data={getUpComingMovies} title="Upcoming Movies" />
-      <MovieCard data={getTopRatedMovies} title="Top Rated Movies" />
-      <MovieCard data={getHorrorMovies} title="Horror" />
-      <MovieCard data={getSciFiMovies} title="Sci-Fi" />
-      <MovieCard data={getFantasyMovie} title="Fantasy" />
-      <MovieCard data={getComedyMovie} title="Comedy" />
-      </Container>
+        <MovieCard data={getUpComingMovies} title="Upcoming Movies" />
+        <MovieCard data={getTopRatedMovies} title="Top Rated Movies" />
+        <MovieCard data={getHorrorMovies} title="Horror" />
+        <MovieCard data={getSciFiMovies} title="Sci-Fi" />
+        <MovieCard data={getFantasyMovie} title="Fantasy" />
+        <MovieCard data={getComedyMovie} title="Comedy" />
+        </Container>
+      </div>
       </Wrapper>
   );
   };
@@ -121,6 +123,6 @@ export async function getServerSideProps() {
 const Wrapper = styled.div`
   .container {
     allign: center;
-    max-width: 1234px;
-    margin: 100px auto;
+    width: 100%;
+    margin: 80px auto;
 `;

@@ -10,12 +10,12 @@ import {
   sendPasswordResetEmail as fSendPasswordResetEmail,
   confirmPasswordReset as fConfirmPasswordReset,
 } from "firebase/auth";
-import {
-   getFirestore,
-   collection,
-   addDoc,
-   Timestamp,
-} from "firebase/firestore";
+import { 
+  getFirestore, 
+  doc, 
+  setDoc, 
+  Timestamp,
+}  from "firebase/firestore";
 
 const AuthContext = createContext();
 
@@ -57,7 +57,7 @@ const useAuthProvider = () => {
     };
 
     const signUp = async (email, password) => {
-        const usersRef = collection(db, "users");
+        const usersRef = doc(db, "users", email);
 
     const response = await createUserWithEmailAndPassword(
       auth,
@@ -65,10 +65,11 @@ const useAuthProvider = () => {
       password
     );
 
-    await addDoc(usersRef, { 
-    uuid: response.user.uid,
+    await setDoc(usersRef, { 
+    uid: response.user.uid,
     timestamp: Timestamp.now(),
     email,
+    watched: new Array()
     });
   };
 
