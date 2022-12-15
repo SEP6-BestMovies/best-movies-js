@@ -1,25 +1,24 @@
 import React from "react";
-
 import { Container, Row, Col } from "reactstrap";
 import classes from "./footer.module.css";
 import Link from "next/link";
 
 const NAV__LINK = [
   {
-      path: "/",
-      display: "Home",
+    path: "/",
+    display: "Home",
   },
   {
-      path: "#movies",
-      display: "Movies",
+    path: "#movies",
+    display: "Movies",
   },
   {
-      path: "#actors",
-      display: "Actors",
+    path: "#actors",
+    display: "Actors",
   },
   {
-      path: "#reviews",
-      display: "Reviews",
+    path: "#reviews",
+    display: "Reviews",
   },
 ];
 
@@ -31,7 +30,6 @@ const Footer = () => {
     <footer>
       <Container>
         <Row>
-          {/* ========= footer top =========== */}
           <Col lg="6" className={`${classes.footer__top}`}>
             <div className={`${classes.nav__menu}`}>
               {NAV__LINK.map((item, index) => (
@@ -41,8 +39,6 @@ const Footer = () => {
               ))}
             </div>
           </Col>
-
-          {/* ========= footer bottom ========= */}
           <Col lg="12">
             <div className={`${classes.footer__copyright}`}>
               <p>

@@ -58,17 +58,6 @@ const SmallCardComponent = () => {
     const [data, setData] = useState();
 
     useEffect(() => {
-        /*
-        if (filter === "action") {
-            for (var i = 0; i < moviesData.length; i++) {
-                const filteredData = moviesData.filter(
-                    (item) => moviesData[i].genre_ids.includes(14)
-                );
-                setData(filteredData);
-            }
-        }
-        */
-
         if (filter === "action") {
             const filteredData = moviesData.filter(
                 (item) => item.adult === false
