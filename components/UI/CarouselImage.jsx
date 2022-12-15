@@ -31,7 +31,7 @@ function CarouselImage(props) {
     <Container>
       <Row>
         <Col lg="12" md="12" className="mb-5">
-          <SectionSubtitle subtitle="Similar movies" className="align-center"/>
+          <h2 className={`${classes.carousel_heading}`}>Similar movies</h2>
         </Col>
       </Row>
       <Carousel className={`${classes.carousel_top}`}>
