@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Image from "next/image";
-import Link from "next/link";
 import { Container, Row, Col } from "reactstrap";
 import SectionSubtitle from "./SectionSubtitle";
 import classes from '../../styles/cardcomponent.module.css'
