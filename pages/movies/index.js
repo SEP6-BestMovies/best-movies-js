@@ -44,7 +44,7 @@ const movies = ({
                 <Image alt="component-img" src={imgPath + movie.backdrop_path} width="380" height="520"/>
                 <h5 align='center'>{movie.title}</h5>
             </li>
-      ))} </div>)} 
+      ))} </div>)}
     
       <Head>
         <title>Movies</title>

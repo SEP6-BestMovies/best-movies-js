@@ -16,11 +16,15 @@ const Header = () => {
         },
         {
             path: "/movies",
-            display: "Movies",
+            display: auth.user ? "Movies" : "",
         },
         {
             path: "/actors",
-            display: "Actors",
+            display: auth.user ? "Actors" : "",
+        },
+        {
+            path: "/watched-list",
+            display: auth.user ? "Watched" : "",
         },
         {
             path: !auth.user ? "login" : "logout",

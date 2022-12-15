@@ -1,11 +1,7 @@
-import Head from "next/head";
-import Link from "next/link";
-import { useState } from "react";
 import { useRouter } from "next/router";
 
 import styles from "../styles/Home.module.css";
 import { useAuth } from "../components/auth/auth";
-import { setErrorMessage } from "../components/auth/setErrorMessage";
 
 const Logout = () => {
     const router = useRouter();
