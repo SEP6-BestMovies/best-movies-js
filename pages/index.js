@@ -16,9 +16,9 @@ export default function Home() {
         />
         <link rel="icon" href="/logo.ico" />
       </Head>
-      <CarouselImage />
       <SmallCardComponentReplace />
       <CardComponent />
+      <CarouselImage />
       <SmallCardComponent />
     </Fragment>
   );
