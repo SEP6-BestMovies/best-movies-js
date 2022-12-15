@@ -56,9 +56,6 @@ const CardComponent = () => {
                             <button className="primary__btn">
                                 <Link href="#">Add to favourites</Link>
                             </button>
-                            <button className="secondary__btn">
-                                <Link href="#">Read more</Link>
-                            </button>
                         </div>
                     </div>
                 </Col>
