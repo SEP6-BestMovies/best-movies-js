@@ -10,7 +10,7 @@ export default class NextJsCarousel extends Component {
     render() {
         //let similarMovies;
         const [similarMovies, setSimilarMovies] = new Array();
-        const fetchConfig = () => {
+        const fetchSimilar = () => {
             axios.get(`https://api.themoviedb.org/3/movie/550/similar?api_key=${process.env.apiKeyDb}`)
                 .then((response) => {
                     setSimilarMovies(response.data.results)
@@ -23,10 +23,10 @@ export default class NextJsCarousel extends Component {
                     }
                 });
         }
-        console.log("----------------" + fetchConfig);
+        console.log("----------------" + similarMovies);
 
         return (
-            <Container className={`${classes.carousel_top}`} >
+            <Container className={`${classes.carousel_top}`} onLoad = {() => fetchSimilar()}>
                 <Carousel>
                     {similarMovies?.map((item) => (
                         <Col lg="4" md="4" sm="6" key={item.id}>
