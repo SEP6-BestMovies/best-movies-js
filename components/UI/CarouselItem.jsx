@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import classes from "../../styles/component-item.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import genres from "../data/genre";
 
 const CarouselItem = (props) => {
 

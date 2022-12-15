@@ -4,7 +4,6 @@ import { Container, Row, Col } from "reactstrap";
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from '../../styles/carousel-image.module.css'
-import SectionSubtitle from "./SectionSubtitle";
 
 function CarouselImage(props) {
 

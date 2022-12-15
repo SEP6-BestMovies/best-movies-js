@@ -4,12 +4,12 @@ import classes from "../../styles/component-item.module.css";
 import Image from "next/image";
 import genres from "../data/genre";
 import { useAuth } from "../auth/auth";
-import { 
+import {
   getFirestore,
-  doc, 
-  updateDoc, 
-  arrayUnion, 
-}  from "firebase/firestore";
+  doc,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
 
 const ComponentItem = (props) => {
   const [config, setConfig] = useState("");
@@ -47,7 +47,7 @@ const ComponentItem = (props) => {
 
   const addToWatched = async (e) => {
     const userRef = doc(db, "users", auth.user.email);
-    updateDoc(userRef, {watched: arrayUnion(id)});
+    updateDoc(userRef, { watched: arrayUnion(id) });
   }
 
   return (

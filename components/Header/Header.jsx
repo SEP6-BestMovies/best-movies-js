@@ -35,7 +35,7 @@ const Header = () => {
             display: !auth.user ? "Register" : "",
         },
     ];
-    
+
     const headerFunc = () => {
         if (
             document.body.scrollTop > 80 ||
@@ -60,12 +60,9 @@ const Header = () => {
         <header className={`${classes.header}`} ref={headerRef}>
             <Container>
                 <div className={`${classes.nav__wrapper}`}>
-                    {/* ======== navigation best movies logo ======== */}
                     <div className={`${classes.logo}`}>
                         <img src="..\images\logo.png" alt="logo" width="135px" />
                     </div>
-
-                    {/* ========= nav menu =========== */}
                     <div
                         className={`${classes.navigation}`}
                         ref={menuRef}
